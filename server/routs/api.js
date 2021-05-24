@@ -8,10 +8,6 @@ router.get('/sanity', function(request, response) {
 })
 
 router.get('/recipes/:recipe', function(request, response) {
-    let dataPlayers = []
-    let playerData = {}
-    dataPlayers = []
-    playerData = {}
     let recipe = request.params.recipe
     let url = 'https://recipes-goodness.herokuapp.com/recipes/' + recipe;
     urllib.request(url, function(err, data, res) {

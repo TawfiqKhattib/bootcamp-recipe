@@ -10,6 +10,4 @@ class Renderer {
         $("#recipe").append(newHTML)
 
     }
-
-
 }
