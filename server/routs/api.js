@@ -8,6 +8,7 @@ router.get('/sanity', function(request, response) {
 })
 
 router.get('/recipes/:recipe', function(request, response) {
+    let recipeArr = []
     let recipe = request.params.recipe
     let url = 'https://recipes-goodness.herokuapp.com/recipes/' + recipe;
     urllib.request(url, function(err, data, res) {
@@ -16,7 +17,10 @@ router.get('/recipes/:recipe', function(request, response) {
         }
         let myData = JSON.parse(data)
         myData = myData.results
-        response.send(myData)
+        for (let data of myData) {
+            recipeArr.push({ herf: data.href, title: data.title, thumbnail: data.thumbnail, ingredients: data.ingredients })
+        }
+        response.send(recipeArr)
     })
 });
 
