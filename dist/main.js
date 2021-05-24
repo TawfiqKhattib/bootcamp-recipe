@@ -11,3 +11,11 @@ $("#search").on("click", function() {
     })
     $("#prod-input").val("");
 });
+
+$("div").on("click", ".mimg", function() {
+
+    let name = $(this).closest("div");
+    recipeList = name.find(".recipeList").text().split(' ').splice(0, 1);
+    alert(recipeList)
+
+})
